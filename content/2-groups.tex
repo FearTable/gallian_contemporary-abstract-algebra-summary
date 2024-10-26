@@ -1,0 +1,262 @@
+  \section{Definition and Examples of Groups}
+\begin{mydef} [Binary Operation]
+  Let $G$ be a set. A \qt{binary operation} on $G$ is a functino that assigns each ordered pair of elements of $G$ an element of $G$.
+\end{mydef}
+
+\begin{mydef}[Group]
+  Let $G$ be a set together with a binary operation (usually called multiplication) that assigns to each ordered pair $(a,b)$ of elements of $G$ en elemetnt in $G$ denoted by $ab = a \cdot b$. We say, $G$ is a \qt{group} under this operation, if the following three properties are satisfied.
+  \begin{enumerate}[label=(\roman*)]
+    \item \emph{Associativity:} $(ab)c=a(bc) \quad \forall a,b,c \in G$.
+    \item \emph{Identity:} $\exists e \in G: ae = ea = a \quad \forall a\in G$. This element $e$ is called \qt{identity}.
+    \item \emph{Inverses:} $\forall a \in G \; \exists b \in G: ab = ba = e$. This element $b$ is called an \qt{inverse} of $a$ and $a$ is called the inverse of b as well.
+  \end{enumerate}
+
+  If a group $G$ has the property that $ab = ba \quad \forall a, b \in G$, the group is called \qt{abelian}.
+\end{mydef}
+
+\section{Elementary Properties of Groups}
+\begin{thm}[Uniqueness of the Identity]
+  In a group $G$, there is only one identity element.
+\end{thm}
+\begin{prf}
+  Suppose $e$ and $e'$ are identites of $G$. Then we have that
+  \begin{equation}
+    \begin{aligned}
+      ae  &= a \quad \forall a \in G \myand \\
+      e'a &= a \quad \forall a \in G
+    \end{aligned}
+  \end{equation}
+
+  Since $e \in G$ and $e' \in G$, we have that
+  \begin{equation}
+    \begin{aligned}
+      e'e  &= e' \myand \\
+      e'e  &= e
+    \end{aligned}
+  \end{equation}
+
+  Thus $e' = e$.
+\end{prf}
+
+\begin{thm}[Cancellation]
+  \label{thm: cancellation}
+  In a group $G$, the right and left cancellation laws hold; that is,
+  \begin{equation}
+    \begin{aligned}
+      ba &= ca \implies b=c \myand \\
+      ab &= ac \implies b=c
+    \end{aligned}
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $a'$ be an inverse of $a$. If $ba=ca$, then $(ba)a' = (ca)a'$. Assiciativity yields $b(aa')=c(aa') \implies be = ce \implies b = c. $
+
+  If $ab = ac$, then $a'(ab)=a'(ac) \implies (a'a)b=(a'a)c \implies b=c.$
+\end{prf}
+
+\begin{thm}[Uniqueness of the Inverses]
+  \label{thm: Uniqueness of the Inverses}
+  $\forall a \in G: \exists ! b\in G: ab = ba = e$
+\end{thm}
+\begin{prf}
+  Let $b$ and $c$ both be inverses of $a$. Then
+  \begin{equation}
+    ab = e \myand ac = e \implies ab = ac.
+  \end{equation}
+  By \ref{thm: cancellation}, we have $b=c$.
+\end{prf}
+
+\begin{mydef}[notation: $g^{-1}$]
+  Since the inverse of an element $g$ of a group is unique, we may unambiguously denote it by $g^{-1}$. This notation is suggested by that used for ordinary real numbers under multiplication. Similarly, when $n$ is a positive integer, the associative law allows us to use $g^n$ to denote the unambiguous product
+  \begin{equation}
+    \underbrace{gg\cdots g}_{\text{$n$ factors}}.
+  \end{equation}
+
+  We define $g^0=e.$ When $n$ is negative, we define $g^n=(g^{-1})^{|n|}$ [ for example, $g^{-3} = (g^{-1})^3$ ]
+\end{mydef}
+
+\begin{thm} [Socks-Shoes Property]
+  $(ab)^{-1}=b^{-1}a^{-1}.$
+\end{thm}
+\begin{prf}
+  \begin{equation}
+    (ab)(ab)^{-1}=e, $ by definition.$
+  \end{equation}
+  \begin{equation}
+    (ab)(b^{-1}a^{-1}) = a(bb^{-1})a^{-1} = aea^{-1} = aa^{-1} = e.
+  \end{equation}
+  Since by \ref{thm: Uniqueness of the Inverses} we know that the inverse is unique, it follows that $(ab)^{-1} = b^{-1}a^{-1}$.
+\end{prf}
+
+\section{Terminology and Notation}
+
+\begin{mydef}[Order of a Group]
+  The number of elements of a group (finite or infite) is called its \qt{order}. We will use $|G|$ to denote the order of $G$.
+\end{mydef}
+
+\begin{mydef}[Order of an Element]
+  The \qt{order} of an element $g$ in a group $G$ is the smallest positive integer $n$ such that
+  \begin{equation}
+    g^n = e $ (In additive notation: $ng = 0$)$
+  \end{equation}
+
+  If no such integer $n$ exists, we say that $g$ has \qt{infinite order}. The order of an element is denoted by
+  \begin{equation}
+    \left | g \right | :\equiv n.
+  \end{equation}
+
+\end{mydef}
+
+\begin{mydef}[Subgroup]
+  If a subset $H$ of a group $G$ is itself a group under the operation of $G$, we say that $H$ is a \qt{subgroup} of $G$. We use use the notation
+  \begin{equation}
+    H \leq G.
+  \end{equation}
+
+  If we want to indicate, that $H$ is a subgroup of $G$ but is not equal to $G$ itself, we write
+  \begin{equation}
+    H < G.
+  \end{equation}
+
+  Such a subgroup is called \qt{proper subgroup}. The subgroup $\{e\}$ is called \qt{trivial subgroup} of $G$. A subgroup that is not $\{e\}$ is called a \qt{nontrivial subgroup} of $G$.
+
+\end{mydef}
+
+\section{Subgroup Tests}
+\begin{thm}[One-Step Subgroup Test]
+  \label{thm: One-Step Subgroup Test}
+  Leg $G$ be a group and $H$ a nonempty subset of $G$. If $a,b \in H$ $\implies$ $ab^{-1} \in H$,
+  then $ H \leq G.$
+\end{thm}
+\begin{prf}
+  Associativity is given by $G$, since the operation of $H$ is the same as that of $G$.
+
+  Now we have to show that the identity $e$ is in $H$. Since $H$ is nonemtpy, we may pick some $x \in H$. Then, letting $a :\equiv x$ and $b :\equiv x$ in the hypothesis, we have $e=xx^{-1} = ab^{-1} \in H$.
+
+  To verify that the inverse $x^{-1} \in H$ whenever $x\in H$, all we need to do is choose $a :\equiv e$ and $b :\equiv x$. If this implies $ab^{-1}=ex^{-1}=x^{-1} \in H$, then every element has an inverse.
+
+  Finally, the proof will be complete when we show that $H$ is closed; that is, if $x,y \in H$, we must show that $xy \in H$ also. So letting
+  $a :\equiv x$ and $b :\equiv y^{-1}$, we have
+  $ab^{-1} = x(y^{-1})^{-1} = xy \in H.$
+\end{prf}
+\begin{example}
+  Let $G$ be an Abelian group with identity $e$. Let $H :\equiv \{x \in G \mid x^2 = e \}.$ Note that $e^2 = e,$ so $H$ is nonempty.
+
+  Now we assume $a,b \in H$. This means $a^2=e$ and $b^2=e$.
+  Finnally, we must show that $(ab^{-1})^2=e$. Since $G$ is Abelian,
+  \begin{equation}
+    (ab^{-1})^2 = ab^{-1}ab^{-1} = a^2(b^{-1})^2 =a^2(b^2)^{-1}=ee^{-1}=e \in H.
+  \end{equation}
+
+  Therefore, $H \leq G$. We have been using the fact that $bb$ is the inverse of $b^{-1}b^{-1}$. [ $(b^2)^{-1} = (b^{-1})^{2}$ ]
+\end{example}
+
+\begin{thm}[Two-Step Subgroup Test]
+  \label{thm: Two-Step Subgroup Test}
+  Let $G$ be a group and let $H$ be a nonempty subset of $G$. If
+  \begin{itemize}
+    \item $a,b \in H \implies ab \in H$, which means $H$ is closed under the operation and
+    \item $a \in H \phantom{,b}\implies a^{-1} \in H$, which means, $H$ is closed under takinging inverses,
+  \end{itemize}
+  then $H \leq G$.
+\end{thm}
+\begin{prf}
+  Since $H$ is nonempty, the operation of $H$ is associative, $H$ is closed, and every element of $H$ has an inverse in $H$, all that remains is to show that $e$ is in $H$. To this end, let $a$ belong to $H$. Then $a^{-1}$ and $aa^{-1} = e$ are in $H$.
+\end{prf}
+
+\setcounter{example}{5}
+\begin{example}
+  Let $G$ be an Abelian group and let $H :\equiv \{ x \in G \mid \abs{x} \text{ is finite} \}$. Since $e^{1}=e$, $H \neq \{\}$. Let $a,b \in H$ and $m :\equiv \abs{a}$ and $n:\equiv \abs{b}$. Then, because $G$ is Abelian, we have
+  \begin{equation}
+    (ab)^{mn}=(a^m)^{n} (b^{n})^{m} = e^{n}e^{m}=e.
+  \end{equation}
+  Thus, $ab$ has a finite order which is not necessarely $mn$. Therefore, $ab \in H$.
+
+  Moreover, $(a^{-1})^{m}=(a^m)^{-1} = e^{-1}=e$ shows, that $a^{-1}$ has finite order and therefore $a^{-1} \in H$. Thus $H \leq G$. \hfill \qedsymbol
+\end{example}
+
+\begin{example}
+  Let $G$ be an Abelian group and $H \leq G$ and $K \leq G$. Let
+  \begin{equation}
+    HK :\equiv \{ hk \mid h\in H, k \in K \}.
+  \end{equation}
+
+  Note $e =ee \in HK.$ Now suppose $a,b \in HK$ \st
+  \begin{equation}
+    a=h_1k_1 $ and $ b=h_2k_2, $ where $h_1,h_2 \in H $ and $ k_1, k_2 \in K.
+  \end{equation}
+
+  Observe that because $G$ is Abelian, we have
+  \begin{equation}
+    ab = h_1k_1h_2k_2 = (h_1h_2)(k_1k_2) \in HK.
+  \end{equation}
+
+  Likewise,
+  \begin{equation}
+    a^{-1} = (h_1k_1)^{-1} = k_1^{-1} h_1^{-1} = h_1^{-1} k_1^{-1} \in HK.
+  \end{equation}
+
+  So $HK \leq G$. \hfill $\qedsymbol$
+\end{example}
+
+How to prove that a subset of a group is \emph{not} a subgroup?
+\begin{itemize}
+  \item Show that the identity is not in the set.
+  \item Exhibit an element in the set whose inverse is not in the set.
+  \item Exhibit two elements in the set whose product is not in the set
+\end{itemize}
+
+\section{Examples of Subgroups}
+
+\begin{thm}[Finite Subgroup Test]
+  \label{thm: Finite Subgroup Test}
+  Suppose $H$ is a nonempty finite subset of a group $G$. If $H$ is closed under the operation of $G$, then $H$ is a subgroup of $G$ ($H \leq G$).
+\end{thm}
+\begin{prf}
+  In view of \ref{thm: Two-Step Subgroup Test} (Two-Step Subgroup Test), all that is left to show is that
+  \begin{equation}
+    a \in H \implies a^{-1} \in H.
+  \end{equation}
+
+  If $a=e$, then $a^{-1} = a$ and we are done.
+
+  If $a \neq e$, consider the sequence $a \in H, a^2 \in H, a^3 \in H, \ldots.$ Since $H$ is finite, not all of these elements are distinct. Say $a^i=a^j$ and $i>j$. Then, $a^{i-j} = e$; and since $a\neq e, i-j >1$. Thus, $aa^{i-j-1} = a^{i-j}=e$ and, therefore, $a^{i-j-1}=a^{-1}$ by \ref{thm: Uniqueness of the Inverses}. But $i-j-1 \geq 1$ implies $a^{i-j-1}=a^{-1}\in H$ and we are done.
+\end{prf}
+
+\begin{mydef}[notation: $\langle a \rangle$]
+  For any element $a$ from a group, let
+  \begin{equation}
+    \langle a \rangle : \equiv \{ a^{n} \mid n \in \mathbb{Z} \}.
+  \end{equation}
+\end{mydef}
+
+\begin{thm}[$\langle a \rangle$ is a Subgroup]
+  Let $G$ be a group, and let a be any element of $G$. Then, $\langle a \rangle$ is a subgroup of $G$.
+\end{thm}
+\begin{prf}
+  Let $a \in \langle a \rangle \implies \langle a \rangle \neq \{ \}.$ Let $a^n, a^m \in \langle a \rangle$. Then $a^n(a^m)^{-1} = a^{n-m} \in \langle a \rangle$; so, by our One-Step Subgroup Test \ref{thm: One-Step Subgroup Test}, we have that $\langle a \rangle \leq G$.
+\end{prf}
+
+The subgroup $\langle a \rangle$ is called the \qt{cyclic subgroup of $G$ generated by $a$}. In case that
+\begin{equation}
+  G= \langle a \rangle,
+\end{equation}
+we say that $G$ is \qt{cyclic} and $a$ is a \qt{generator of $G$}. (A cyclic group may have many generators.) Notice that although the list
+\begin{equation}
+  \ldots, a^{-2}, a^{-1}, a^{0}, a^{-1}, a^{2}, \ldots
+\end{equation}
+
+has infinitely many entries, the set
+\begin{equation}
+  \{ a^{n} \mid n \in \mathbb{Z} \}
+\end{equation}
+
+mitght have only finitely many elements. Also note that, since $a^ia^j=a^{i+j}=a^{j+i}=a^ja^i$, every cyclic group is Abelian.
+
+\begin{mydef}[Center of a Group]
+  The \qt{center}, $Z(G)$, of a group $G$ is the subset of elements in $G$ that commute with every element in $G$. In symbols,
+  \begin{equation}
+    Z(G) :\equiv \{a \in G \mid ax = xa \quad \forall x \in G \}.
+  \end{equation}
+
+\end{mydef}

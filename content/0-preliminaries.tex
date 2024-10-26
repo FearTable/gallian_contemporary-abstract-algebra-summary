@@ -1,0 +1,147 @@
+\section{Properties of Integers}
+
+\begin{mydef}[Well Ordering Principle]
+Every nonempty set of positive integers contains a smallest member. This is called the \qt{Well Ordering Principle}.
+\end{mydef}
+
+\begin{thm}[Divison Algorithm]
+  \label{thm: Divison Algorithm}
+  $\forall a,b \in \integer: b > 0 \implies \exists ! q,r \in \integer: $
+  \begin{equation}
+    a = bq + r $ and $ 0 \leq r < b.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  \emph{Existence first:} Let $a,b \in \integer, b > 0$ and also let
+  \begin{equation}
+    S :\equiv \{ a- bk \mid k \in \integer $ and $ a-bk \geq 0 \}
+  \end{equation}
+
+  If $0 \in S \implies b \mid a $ (because $a=bk$) and we have
+  \begin{equation}
+    a = b \underbrace{\frac{a}{b}}_{= q} + \underbrace{0.\phantom{\frac{a}{b}\!\!\!\!}}_{= r}
+    $ Note that $a$ as well as $q$ could be $0.
+  \end{equation}
+
+  Now assume $0 \notin S$. For this case, we first claim that $S$ is nonemtpy.
+  \begin{equation}
+    a>0 \implies a-0b \in S.
+  \end{equation}
+  \begin{equation}
+    a<0 \implies a-b(2a) = \underbrace{\!\!\phantom{(}a\,\cdot}_{\neq 0} \underbrace{(1-2b)}_{\neq 0} \in S $ because $b$ is positive $ (b>0)
+  \end{equation}
+
+  The case where $a=0$ does not exist because $b$ is positive and we assumed that $0 \notin S$.
+
+  Since $S$ is nonempty, we may use the Well Ordering Principle to conclude that $S$ has a smallest member, say
+  \begin{equation}
+    r = a -bq
+  \end{equation}
+
+  for which it holds that
+  \begin{equation}
+    a=bq+r $ and $ r \geq 0.
+  \end{equation}
+
+  All thats left to prove is that $r  < b$. If $r \geq b$
+  \begin{equation}
+    \implies a-b(q+1) = a-bq -b = r-b \geq 0
+  \end{equation}
+  \begin{equation}
+    \implies a-b(q+1) \in S
+  \end{equation}
+
+  But $a-b(q+1) < a-bq$, and $a-bq$ is the smallest member in $S$. So $r \geq b$ can not hold. So it must be the case that $r < b.$
+
+  \bigbreak
+
+  \emph{Establishment of uniqueness:} Let $q, \widetilde q,r,\widetilde r \in \integer$ \st
+  \begin{equation}
+    a = bq+r, \quad 0 \leq r < b
+  \end{equation}
+  \begin{equation}
+    a = b \widetilde q + \widetilde r, \quad 0 \leq \widetilde r < \widetilde b \quad $and$ \quad \widetilde r \geq r.
+  \end{equation}
+
+  Surely $bq+r=b \widetilde q+ \widetilde r$ and therefore $b(q-\widetilde q)=\widetilde r-r$. So $b$ devides $\widetilde r-r$.
+  But since we had $r \leq \widetilde r$ we have that
+  $0 \leq \widetilde r - r \leq \widetilde r < b$. This implies that $\widetilde r-r = 0$ which is the same as $\widetilde r=r$. This also implies that $\widetilde q=q$. [because $b \widetilde{q} + 0 = bq + 0.$]
+
+  So we have proven that for every integer $a$ and $b$ if $b >0$, there exists unique integers $q$ and $r$ \st
+  $a=bq+r $ and $ 0 \leq r < b.$
+\end{prf}
+
+The integer $q$ in the division alogirthm is called the \qt{quotient} upon dividing $a$ by $b$; the integer $r$ is called the \qt{remainder} upon
+dividing $a$ by $b$.
+
+\begin{mydef}[Greatest Common Divisor, Relatively Prime Integers]
+  The \qt{greatest common divisor} of two nonzwero integers $a$ and $b$ is the largest of all common divisors of $a$ and $b$. We denote this integer by $\gcd (a,b)$.
+
+  When $gcd(a,b)=1$, we say $a$, $b$ are \qt{relatively prime}.
+\end{mydef}
+
+\begin{thm}[GCD Is a Linear Combination]
+  $a,b \in \nat^+ \implies \exists s,t \in \integer$ \st
+  \begin{equation}
+    \gcd(a,b)=a\cdot s+b \cdot t
+  \end{equation}
+
+  Moreover, $\gcd(a,b)$ is the smallest positive integer  of the form $a\cdot s+b \cdot t \in \nat$.
+\end{thm}
+\begin{prf}
+  Let $S :\equiv \{am + bn \mid m,n \in \integer $ and $am+bn >0 \}$. We observe that $S$ is nonempty, because $m$ and $n$ can be choosen to make $am + bn$ positive. The Well Ordering Principle asserts that $S$ has a smallest member, say,
+  \begin{equation}
+    d=as+bt.
+  \end{equation}
+
+  We claim that this is our gcd. To verify this claim, we use our Division Algorithm \ref{thm: Divison Algorithm}. So we have
+  \begin{equation}
+    a = dq + r, $ where $ 0 \leq r \leq d.
+  \end{equation}
+
+  If $r > 0$, then
+  \begin{equation}
+    r = a-dq = a-(as+bt)q=a-asq-btq=a(1-sq)-b(-tq)\in S.
+  \end{equation}
+
+  So $r\in S$, but $r<d$ is contradicting our assumtion that $d$ is the smallest member of $S$. Therefore, $r=0$ and $a=dq$ so $d$ devides $a$. By the same argument, $d$ devides $b$ as well.
+
+  \bigbreak
+
+  \emph{Establishment of uniqueness:} Now suppose $d'$ is another common divisor of $a$ and $b$ and write
+  \begin{equation}
+    a = d'h $ and $ b=d'k $ for some $ h,k \in \nat
+  \end{equation}
+
+  Then $d=as + bt = (d'h)s + (d'k)t = (d'h)s + (d'k)t = d'(hs + kt)$, so that $d'$ is a divisor of $d$. Thus among all common divisors of $a$ and $b$, $d$ is the greatest.
+\end{prf}
+\begin{corollary}
+  If $a$ and $b$ are relatively prime, then there exist integers $s$ and $t$ \st
+  \begin{equation}
+    as + bt = 1.
+  \end{equation}
+\end{corollary}
+
+\begin{thm-non}[Euclid's Lemma]
+  If $p$ is a prime that divides $ab$, then $p$ divides $a$ or $p$ divides $b$. (exclusive \qt{or}, xor)
+\end{thm-non}
+\begin{prf}
+  Suppose $p$ is a prime \st $p \mid ab$ but w.l.o.g. $\neg (p \mid a)$.
+  \begin{equation}
+    \implies 1 =as + pt $ for some $ s,t \in \integer, $ by our Corollary.$
+  \end{equation}
+  \begin{equation}
+    \implies b = bas +bpt = abs + ptb.
+  \end{equation}
+
+  Since $p$ divides $abs$ and $ptb$, it follows that $p$ also devides $b$. [and does not divide $a$ according to our assumtion.] The roles of $a$ and $b$ are interchanchable.
+\end{prf}
+
+\begin{thm}[Fundamental Theorem of Arithmetic]
+  Every integer greater than $1$ is a prime or a product of primes. This product is unique, except fror the order in qhich the factors appear. That is, if
+  \begin{equation}
+    n = p_1 p_2 \cdots p_r $ and $ n= q_1 q_2 \cdots q_s,
+  \end{equation}
+
+  where the $p$'s and $q$'s are primes, then $r=s$ and, after renumbering the $q$'s, we have $p_i = q_i \quad \forall i \in \{1, \ldots, s\}$
+\end{thm}

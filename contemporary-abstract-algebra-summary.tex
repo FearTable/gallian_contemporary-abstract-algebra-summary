@@ -1,0 +1,90 @@
+\documentclass[12pt]{report}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage[english]{babel}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[skip = 2pt, parfill]{parskip}
+\usepackage{blkarray}
+\usepackage{blindtext}
+\usepackage{geometry}
+\usepackage[explicit]{titlesec} %"big, medium, small, tiny".
+\usepackage{xfakebold}
+\usepackage{amsthm}
+\usepackage{lmodern}
+\usepackage{ragged2e}
+%\usepackage[rmx]{kpfonts}
+\usepackage{concmath}
+\usepackage{lipsum}
+\usepackage{xfrac}
+\usepackage{breqn}
+\usepackage[colorlinks=false]{hyperref}
+\usepackage{xr-hyper}
+%\usepackage[fontsize=14pt]{scrextend}
+\usepackage{relsize}
+\usepackage{enumitem}
+\usepackage{etoolbox}
+\usepackage{changepage}
+\usepackage{mathtools}
+\usepackage[shortcuts]{extdash}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\usepackage[most]{tcolorbox}
+\usepackage[T1]{fontenc}
+\usepackage{physics}
+
+%\renewcommand*\oldstylenums[1]{{\firaoldstyle #1}}
+
+%\renewcommand{\bfdefault}{sb}
+%\DeclareMathAlphabet{\mathbf}{\encodingdefault}{\familydefault}{\bfdefault}{n}
+
+\setlist{nosep}
+
+\definecolor{darkteal}{RGB}{0, 41, 59}
+
+\hypersetup{
+  colorlinks,
+  linkcolor={black},
+  citecolor={black},
+  urlcolor={black}
+}
+
+\geometry{
+  a4paper,
+  total={170mm,257mm},
+  left=15mm,
+  right=15mm,
+  top=15mm,
+}
+
+
+\linespread{1.1}
+
+
+\begin{document}
+
+  \input{def}
+
+  \setcounter{chapter}{-1}
+
+  \chapter{Preliminaries}
+  \input{content/0-preliminaries}
+
+  %We will make this chapter later
+  %\chapter{Introduction to Groups}
+  %\input{content/0-preliminaries}
+
+  \setcounter{chapter}{2}
+
+  \chapter{Groups}
+  \input{content/2-groups}
+  %\input{content/1B-definition-and-examples-of-groups}
+
+  \chapter{Finite Groups, Subgroups}
+  \input{content/3-finite-groups-subgroups}
+  %\input{content/3A-terminology-and-notation}
+
+\end{document}

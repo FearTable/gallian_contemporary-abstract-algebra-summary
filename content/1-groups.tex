@@ -1,0 +1,89 @@
+\section{Definition and Examples of Groups}
+\begin{mydef} [Binary Operation]
+  Let $G$ be a set. A \qt{binary operation} on $G$ is a functino that assigns each ordered pair of elements of $G$ an element of $G$.
+\end{mydef}
+
+\begin{mydef}[Group]
+  Let $G$ be a set together with a binary operation (usually called multiplication) that assigns to each ordered pair $(a,b)$ of elements of $G$ en elemetnt in $G$ denoted by $ab = a \cdot b$. We say, $G$ is a \qt{group} under this operation, if the following three properties are satisfied.
+  \begin{enumerate}[label=(\roman*)]
+    \item \emph{Associativity:} $(ab)c=a(bc) \quad \forall a,b,c \in G$.
+    \item \emph{Identity:} $\exists e \in G: ae = ea = a \quad \forall a\in G$. This element $e$ is called \qt{identity}.
+    \item \emph{Inverses:} $\forall a \in G \; \exists b \in G: ab = ba = e$. This element $b$ is called an \qt{inverse} of $a$ and $a$ is called the inverse of b as well.
+  \end{enumerate}
+
+  If a group $G$ has the property that $ab = ba \quad \forall a, b \in G$, the group is called \qt{abelian}.
+\end{mydef}
+
+\section{Elementary Properties of Groups}
+\begin{thm}[Uniqueness of the Identity]
+  In a group $G$, there is only one identity element.
+\end{thm}
+\begin{prf}
+  Suppose $e$ and $e'$ are identites of $G$. Then we have that
+  \begin{equation}
+    \begin{aligned}
+      ae  &= a \quad \forall a \in G \myand \\
+      e'a &= a \quad \forall a \in G
+    \end{aligned}
+  \end{equation}
+
+  Since $e \in G$ and $e' \in G$, we have that
+  \begin{equation}
+    \begin{aligned}
+      e'e  &= e' \myand \\
+      e'e  &= e
+    \end{aligned}
+  \end{equation}
+
+  Thus $e' = e$.
+\end{prf}
+
+\begin{thm}[Cancellation]
+  \label{thm: cancellation}
+  In a group $G$, the right and left cancellation laws hold; that is,
+  \begin{equation}
+    \begin{aligned}
+      ba &= ca \implies b=c \myand \\
+      ab &= ac \implies b=c
+    \end{aligned}
+  \end{equation}
+\end{thm}
+\begin{prf}
+  Let $a'$ be an inverse of $a$. If $ba=ca$, then $(ba)a' = (ca)a'$. Assiciativity yields $b(aa')=c(aa') \implies be = ce \implies b = c. $
+
+  If $ab = ac$, then $a'(ab)=a'(ac) \implies (a'a)b=(a'a)c \implies b=c.$
+\end{prf}
+
+\begin{thm}[Uniqueness of the Inverses]
+  \label{thm: Uniqueness of the Inverses}
+  $\forall a \in G: \exists ! b\in G: ab = ba = e$
+\end{thm}
+\begin{prf}
+  Let $b$ and $c$ both be inverses of $a$. Then
+  \begin{equation}
+    ab = e \myand ac = e \implies ab = ac.
+  \end{equation}
+  By \ref{thm: cancellation}, we have $b=c$.
+\end{prf}
+
+\begin{mydef}[notation: $g^{-1}$]
+  Since the inverse of an element $g$ of a group is unique, we may unambiguously denote it by $g^{-1}$. This notation is suggested by that used for ordinary real numbers under multiplication. Similarly, when $n$ is a positive integer, the associative law allows us to use $g^n$ to denote the unambiguous product
+  \begin{equation}
+    \underbrace{gg\cdots g}_{\text{$n$ factors}}.
+  \end{equation}
+
+  We define $g^0=e.$ When $n$ is negative, we define $g^n=(g^{-1})^{|n|}$ [ for example, $g^{-3} = (g^{-1})^3$ ]
+\end{mydef}
+
+\begin{thm} [Socks-Shoes Property]
+  $(ab)^{-1}=b^{-1}a^{-1}.$
+\end{thm}
+\begin{prf}
+  \begin{equation}
+    (ab)(ab)^{-1}=e, $ by definition.$
+  \end{equation}
+  \begin{equation}
+    (ab)(b^{-1}a^{-1}) = a(bb^{-1})a^{-1} = aea^{-1} = aa^{-1} = e.
+  \end{equation}
+  Since by \ref{thm: Uniqueness of the Inverses} we know that the inverse is unique, it follows that $(ab)^{-1} = b^{-1}a^{-1}$.
+\end{prf}
