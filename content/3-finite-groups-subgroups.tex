@@ -170,3 +170,80 @@ mitght have only finitely many elements. Also note that, since $a^ia^j=a^{i+j}=a
   \end{equation}
 
 \end{mydef}
+
+
+\begin{thm}[Center Is a Subgroup]
+  \label{thm: Center Is a Subgroup}
+  The center $Z(G)$ of a group $G$ is a subgroup of $G$.
+  \begin{equation}
+    Z(G) \leq G.
+  \end{equation}
+\end{thm}
+\begin{prf}
+  We will use Theorem \ref{thm: Two-Step Subgroup Test}, the \qt{Two-Step Subgroup Test}, to prove this Theorem.
+
+  Clearly, $e\in Z(G),$ so $Z(G)$ is nonempty.
+
+  Now, suppose $a,b \in Z(G).$ Then
+  \begin{equation}
+    (ab)x = a(bx) = a(xb) = (ax) b = (xa)b = x (ab) \quad \forall x \in G; $ and, $
+  \end{equation}
+  therefore, $ab \in Z(G)$.
+
+  Next, assume that $a \in Z(G)$. Then we have
+  \begin{equation}
+    \label{eq: ax=xa}
+    ax = xa \quad \forall x \in G.
+  \end{equation}
+  What we want is $a^{-1}x = xa^{-1} \quad \forall x\in G$, which would imply that $a^{-1} \in G.$ This will end our \qt{Two-Step Subgroup Test.} We can do that if we use formula \eqref{eq: ax=xa} and multyply it on both sides with $a^{-1}$:
+  \begin{equation}
+    \begin{aligned}
+      a^{-1}(ax)a^{-1}  &=a^{-1}(xa)a^{-1}\\
+      (a^{-1}a)xa^{-1}&=a^{-1}x(aa^{-1}) \\
+      exa^{-1}&=a^{-1}xe \\
+      xa^{-1}&=a^{-1}x \\
+    \end{aligned}
+  \end{equation}
+
+  This shows that $a^{-1} \in G$ whenever $a$ is.
+\end{prf}
+
+\begin{mydef}[Centralizer of $a$ in $G$]
+  Let $a$ be a fixed element of a group $G$. The \qt{centralizer of a in $G$}, denoted as $C(a)$, is the set of elements in $G$ that commute with $a$. In symbols,
+  \begin{equation}
+    C(a) :\equiv \{g \in G \mid ga = ag \}.
+  \end{equation}
+\end{mydef}
+\begin{thm}[$C(a)$ is a Subgroup]
+  For each $a$ in a group $G$, the centralizer $C(a)$ is a subgroup of $G$.
+\end{thm}
+\begin{prf}
+  The proof is very similar of that of \ref{thm: Center Is a Subgroup}.
+  Let $u$ be an element of a Group $G$.
+
+  Clearly, $e \in C(u)$ so $C(u)$ is nonempty.
+
+  Now, suppose $a,b \in C(u).$ Then
+  \begin{equation}
+    (ab)u = a(bu) = a(ub) = (au) b = (ua)b = u (ab) $ and, $
+  \end{equation}
+  therefore, $ab \in C(u)$.
+
+  Next, assume that $a \in C(u)$. Then we have
+  \begin{equation}
+    \label{eq: au=ua}
+    au = ua
+  \end{equation}
+
+  It follows that
+  \begin{equation}
+  \begin{aligned}
+    a^{-1}(au)a^{-1}  &=a^{-1}(xa)a^{-1}\\
+    (a^{-1}a)ua^{-1}&=a^{-1}u(aa^{-1}) \\
+    eua^{-1}&=a^{-1}ue \\
+    ua^{-1}&=a^{-1}u \\
+  \end{aligned}
+  \end{equation}
+
+  So $a^{-1} \in C(u)$ whenever $a \in C(u)$.
+\end{prf}

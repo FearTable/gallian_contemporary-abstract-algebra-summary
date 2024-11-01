@@ -1,7 +1,16 @@
 \section{Properties of Integers}
 
 \begin{mydef}[Well Ordering Principle]
-Every nonempty set of positive integers contains a smallest member. This is called the \qt{Well Ordering Principle}.
+  Every nonempty set of positive integers contains a smallest member. This is called the \qt{Well Ordering Principle}.
+\end{mydef}
+
+\begin{mydef}[notation: $a \mid b$]
+  For $a,b \in \integer$, $a$ \qt{divides} $b$ $:\iff$ $\exists k\in \integer$ \st
+  \begin{equation}
+    b=ak.
+  \end{equation}
+
+  We write $a \mid b$. Otherwise we write $a \nmid b$.
 \end{mydef}
 
 \begin{thm}[Divison Algorithm]
@@ -14,13 +23,13 @@ Every nonempty set of positive integers contains a smallest member. This is call
 \begin{prf}
   \emph{Existence first:} Let $a,b \in \integer, b > 0$ and also let
   \begin{equation}
-    S :\equiv \{ a- bk \mid k \in \integer $ and $ a-bk \geq 0 \}
+    S :\equiv \{ a- bk \mid k \in \integer $ and $ a-bk \geq 0 \}.
   \end{equation}
 
   If $0 \in S \implies b \mid a $ (because $a=bk$) and we have
   \begin{equation}
     a = b \underbrace{\frac{a}{b}}_{= q} + \underbrace{0.\phantom{\frac{a}{b}\!\!\!\!}}_{= r}
-    $ Note that $a$ as well as $q$ could be $0.
+    $ Note that $a$ and $q$ could be $0$ as well$.
   \end{equation}
 
   Now assume $0 \notin S$. For this case, we first claim that $S$ is nonemtpy.
@@ -43,7 +52,7 @@ Every nonempty set of positive integers contains a smallest member. This is call
     a=bq+r $ and $ r \geq 0.
   \end{equation}
 
-  All thats left to prove is that $r  < b$. If $r \geq b$
+  All thats left to prove is that $r  < b$. We do this by contradiction. If $r \geq b$
   \begin{equation}
     \implies a-b(q+1) = a-bq -b = r-b \geq 0
   \end{equation}
@@ -51,7 +60,7 @@ Every nonempty set of positive integers contains a smallest member. This is call
     \implies a-b(q+1) \in S
   \end{equation}
 
-  But $a-b(q+1) < a-bq$, and $a-bq$ is the smallest member in $S$. So $r \geq b$ can not hold. So it must be the case that $r < b.$
+  But $a-b(q+1) < a-bq$, and $a-bq=r$ is the smallest member in $S$. So $r \geq b$ can not hold. So it must be the case that $r < b.$
 
   \bigbreak
 
@@ -63,9 +72,9 @@ Every nonempty set of positive integers contains a smallest member. This is call
     a = b \widetilde q + \widetilde r, \quad 0 \leq \widetilde r < \widetilde b \quad $and$ \quad \widetilde r \geq r.
   \end{equation}
 
-  Surely $bq+r=b \widetilde q+ \widetilde r$ and therefore $b(q-\widetilde q)=\widetilde r-r$. So $b$ devides $\widetilde r-r$.
+  Surely $bq+r=b \widetilde q+ \widetilde r$ and therefore $b(q-\widetilde q)=\widetilde r-r$. So $b$ devides $\widetilde r-r$ [$b \mid (\widetilde r -r)$] .
   But since we had $r \leq \widetilde r$ we have that
-  $0 \leq \widetilde r - r \leq \widetilde r < b$. This implies that $\widetilde r-r = 0$ which is the same as $\widetilde r=r$. This also implies that $\widetilde q=q$. [because $b \widetilde{q} + 0 = bq + 0.$]
+  $0 \leq \widetilde r - r \leq \widetilde r < b$. This and the fact that $b \mid (\widetilde r -r)$ implies that $\widetilde r-r = 0$ which is the same as $\widetilde r=r$. This also implies that $\widetilde q=q$. [because $b \widetilde{q} + 0 = bq + 0.$]
 
   So we have proven that for every integer $a$ and $b$ if $b >0$, there exists unique integers $q$ and $r$ \st
   $a=bq+r $ and $ 0 \leq r < b.$
@@ -75,7 +84,7 @@ The integer $q$ in the division alogirthm is called the \qt{quotient} upon divid
 dividing $a$ by $b$.
 
 \begin{mydef}[Greatest Common Divisor, Relatively Prime Integers]
-  The \qt{greatest common divisor} of two nonzwero integers $a$ and $b$ is the largest of all common divisors of $a$ and $b$. We denote this integer by $\gcd (a,b)$.
+  The \qt{greatest common divisor} of two nonzero integers $a$ and $b$ is the largest of all common divisors of $a$ and $b$. We denote this integer by $\gcd (a,b)$.
 
   When $gcd(a,b)=1$, we say $a$, $b$ are \qt{relatively prime}.
 \end{mydef}
@@ -89,6 +98,8 @@ dividing $a$ by $b$.
   Moreover, $\gcd(a,b)$ is the smallest positive integer  of the form $a\cdot s+b \cdot t \in \nat$.
 \end{thm}
 \begin{prf}
+  We first prove the existence of such a linear combination.
+
   Let $S :\equiv \{am + bn \mid m,n \in \integer $ and $am+bn >0 \}$. We observe that $S$ is nonempty, because $m$ and $n$ can be choosen to make $am + bn$ positive. The Well Ordering Principle asserts that $S$ has a smallest member, say,
   \begin{equation}
     d=as+bt.
@@ -96,7 +107,7 @@ dividing $a$ by $b$.
 
   We claim that this is our gcd. To verify this claim, we use our Division Algorithm \ref{thm: Divison Algorithm}. So we have
   \begin{equation}
-    a = dq + r, $ where $ 0 \leq r \leq d.
+    a = dq + r, $ where $ 0 \leq r < d.
   \end{equation}
 
   If $r > 0$, then
@@ -104,7 +115,9 @@ dividing $a$ by $b$.
     r = a-dq = a-(as+bt)q=a-asq-btq=a(1-sq)-b(-tq)\in S.
   \end{equation}
 
-  So $r\in S$, but $r<d$ is contradicting our assumtion that $d$ is the smallest member of $S$. Therefore, $r=0$ and $a=dq$ so $d$ devides $a$. By the same argument, $d$ devides $b$ as well.
+  So $r\in S$, but $r<d$ is contradicting our assumtion that $d$ is the smallest member of $S$. Therefore, $r=0$ and $a=dq$ so $d$ devides $a$. By the same argument, $d$ devides $b$ as well. So $d$ is a common divisor of both $a$ and $b$.
+
+  [we had $0 \leq r < d$ so if $r>0$ does not hold, $r=0$ it the only option]
 
   \bigbreak
 
@@ -126,7 +139,7 @@ dividing $a$ by $b$.
   If $p$ is a prime that divides $ab$, then $p$ divides $a$ or $p$ divides $b$. (exclusive \qt{or}, xor)
 \end{thm-non}
 \begin{prf}
-  Suppose $p$ is a prime \st $p \mid ab$ but w.l.o.g. $\neg (p \mid a)$.
+  Suppose $p$ is a prime \st $p \mid ab$ but w.l.o.g. $p \nmid a$.
   \begin{equation}
     \implies 1 =as + pt $ for some $ s,t \in \integer, $ by our Corollary.$
   \end{equation}
@@ -140,8 +153,8 @@ dividing $a$ by $b$.
 \begin{thm}[Fundamental Theorem of Arithmetic]
   Every integer greater than $1$ is a prime or a product of primes. This product is unique, except fror the order in qhich the factors appear. That is, if
   \begin{equation}
-    n = p_1 p_2 \cdots p_r $ and $ n= q_1 q_2 \cdots q_s,
+    n = p_1 p_2 \cdots p_r $ and $ n= q_1 q_2 \cdots q_s, $ where the $p$'s and $q$'s are primes, $
   \end{equation}
 
-  where the $p$'s and $q$'s are primes, then $r=s$ and, after renumbering the $q$'s, we have $p_i = q_i \quad \forall i \in \{1, \ldots, s\}$
+   then $r=s$ and, after renumbering the $q$'s, we have $p_i = q_i \quad \forall i \in \{1, \ldots, s\}$
 \end{thm}
