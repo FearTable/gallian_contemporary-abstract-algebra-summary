@@ -93,9 +93,11 @@ Reminder: A cyclic group $G$ looks as follows
   This implies that $\abs{ab} \bigg | mn$ according to corollary \ref{thm: the power in which an element equals to the identity is a multiple of the elements order}.
 \end{prf}
 
-\begin{thm}Let $a\in G$, $n:\equiv \abs{a}=\abs{\la a \ra}$, $k\in \nat^+$. Then
+\begin{thm}[Relationship between an element of a cyclic group raised to a certain power and the order of that product]
+  \label{thm: Relationship between an element of a cyclic group raised to a certain power and the order of that product}
+  Let $a\in G$, $n:\equiv \abs{a}=\abs{\la a \ra}$, $k\in \nat^+$. Then
   \begin{equation}
-    \la a^k \ra = \la a^{\gcd(n,k)} \ra $ and $ \abs{a ^k} = \frac{n}{\gcd(n,k)}.
+    \la a^k \ra = \la a^{\gcd(n,k)} \ra $ and $ \abs{a ^k} = \dfrac{n}{\gcd(n,k)}.
   \end{equation}
 \end{thm}
 \begin{prf} \emph{First part:}
@@ -141,7 +143,7 @@ Reminder: A cyclic group $G$ looks as follows
 
   We now apply this fact with $d=\gcd(n,k)$ to optain
   \begin{equation}
-    \abs{a^k} = \abs{\la a^k \ra} = \abs{ \la a^{\gcd (n,k)} \ra } = \abs{a^{\gcd(n,k)}} = \sfrac{n}{gcd(n,k)}
+    \abs{a^k} = \abs{\la a^k \ra} = \abs{ \la a^{\gcd (n,k)} \ra } = \abs{a^{\gcd(n,k)}} = \frac{n}{gcd(n,k)}
   \end{equation}
 \end{prf}
 
@@ -152,6 +154,7 @@ Reminder: A cyclic group $G$ looks as follows
 \end{corollary}
 
 \begin{corollary}[Criterion for $\la a^i \ra = \la a^j \ra$ and $\abs{a^i} = \abs{a^j}$]
+%  \phantom{.}\\
   Let $n:\equiv \abs{a}=\abs{\la a \ra}$. Then
   \begin{equation}
     \la a^i \ra = \la a^j \ra \iff \gcd(n,i) = \gcd(n,j) $ and$
@@ -238,9 +241,9 @@ Reminder: A cyclic group $G$ looks as follows
   \end{equation}
   where $m$ is the least positive integer such that $a^m \in H$. Therefore, since we know that $H = \la a^m \ra$, the order of any subgroup of $\la a \ra$ is a divisor of $n$.
 
-  Finally, let $k$ be any positive divisor of $n$. We will show that $\la a^{n/k} \ra$ is the one and only subgroup of $\la a \ra$ of order $k$. We know from our previous theorem that
+  Finally, let $k$ be any positive divisor of $n$. We will show that $\la a^{n/k} \ra$ is the one and only subgroup of $\la a \ra$ of order $k$. We know from our previous theorem \ref{thm: Relationship between an element of a cyclic group raised to a certain power and the order of that product} that
   \begin{equation}
-    \abs{\la a^{n/k} \ra} = n/\gcd(n,n/k) = n/(n/k) =k.
+    \abs{\la a^{n/k} \ra} = \frac{n}{\gcd(n, \sfrac{n}{k})} = \frac{n}{\sfrac{n}{k}} =k.
   \end{equation}
   Now let $H$ be any subgroup of $\la a \ra$ of order $k$.
   \begin{equation}
@@ -251,7 +254,7 @@ Reminder: A cyclic group $G$ looks as follows
     \implies m=\gcd(n,m) $ and$
   \end{equation}
   \begin{equation}
-    k = \abs{a^m} = \abs{a^{\gcd(n,m)}}=n/\gcd(n,m) = n/m.
+    k = \abs{a^m} = \abs{a^{\gcd(n,m)}}=\frac{n}{\gcd(n,m)} = n/m.
   \end{equation}
 Thus, $m = \sfrac{n}{k} $ and $ H = \la a^{\sfrac{n}{k}} \ra$.
 \end{prf}
